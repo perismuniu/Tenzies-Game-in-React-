@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #0B2434;
+    
+}
+
+main {
+    width: 360px;
+    height: 400px;
+    margin: auto ;
+    margin-top: 8em;
+    background-color: white;
+}
