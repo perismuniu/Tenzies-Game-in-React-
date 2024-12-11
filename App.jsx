@@ -3,6 +3,7 @@ import Die from './components/Die'
 
 const App = () => {
     const [dice, setDice] = useState(generateAllNewDice())
+
     function generateAllNewDice () {
         const randomArray = []
         for (let i = 0; i < 10; i++) {
@@ -12,14 +13,18 @@ const App = () => {
         return randomArray
     }
    
+    function rollDice() {
+        setDice(generateAllNewDice())
+    }
 
     const diceArray = dice.map((num) => <Die value={num}/>)
 
   return (
       <main>
         <div className="container">
-            {diceArray}
+            {diceArray}  
         </div>
+        <button className="roll" onClick={rollDice}>Roll Dice</button>
       </main>
   )
 }
