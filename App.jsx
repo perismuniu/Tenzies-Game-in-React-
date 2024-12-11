@@ -1,12 +1,23 @@
-import React from 'react'
+import Die from './components/Die'
 
 const App = () => {
   return (
-    <div>
       <main>
+        <div className="die">
+            <Die value={1}/>
+            <Die value={1}/>
+            <Die value={1}/>
+            <Die value={1}/>
+            <Die value={1}/>
+            <Die value={1}/>
+            <Die value={1}/>
+            <Die value={1}/>
+            <Die value={1}/>
+            <Die value={1}/>
+        </div>
+        
         
       </main>
-    </div>
   )
 }
 
