@@ -4,9 +4,11 @@ import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
 
 const App = () => {
-    const [dice, setDice] = useState(generateAllNewDice())
+    const [dice, setDice] = useState(() => generateAllNewDice())
 
     const gameWon = dice.every(die => die.isHeld) && dice.every(die => die.value === dice[0].value)
+
+    
 
 
     function generateAllNewDice () {
@@ -21,9 +23,14 @@ const App = () => {
     }
    
     function rollDice() {
-        setDice(prevDie => prevDie.map( die =>
-            die.isHeld ? die : {...die, value : Math.ceil(Math.random() * 6)}
-        ))
+        if(gameWon) {
+            setDice(() => generateAllNewDice())
+
+        } else {
+            setDice(prevDie => prevDie.map( die =>
+                die.isHeld ? die : {...die, value : Math.ceil(Math.random() * 6)}
+            ))
+        }
     }
 
     function hold (id) {
