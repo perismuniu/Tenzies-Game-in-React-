@@ -17,15 +17,29 @@ const App = () => {
     }
    
     function rollDice() {
-        setDice(generateAllNewDice())
+        setDice(prevDie => prevDie.map( die =>
+            die.isHeld ? die : {...die, value : Math.ceil(Math.random() * 6)}
+        ))
     }
 
-    const diceArray = dice.map((dieObj) => <Die key={dieObj.id} value={dieObj.value}/>)
+    function hold (id) {
+        setDice(prevDie => prevDie.map((die) =>
+            die.id === id ? {...die, isHeld: !die.isHeld} : die
+        ))
+    }
+
+    const diceArray = dice.map((dieObj) => 
+        <Die 
+            key={dieObj.id} 
+            value={dieObj.value} 
+            isHeld={dieObj.isHeld}
+            hold={() => hold(dieObj.id)}
+         />)
 
   return (
       <main>
         <div className="container">
-            {diceArray}  
+            {diceArray}
         </div>
         <button className="roll" onClick={rollDice}>Roll Dice</button>
       </main>
