@@ -23,13 +23,26 @@ main {
 
 }
 
-.container {
+.title {
+    font-size: 40px;
     margin: 0;
+}
+
+.instructions {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    margin-top: 0;
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+.container {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(5,1fr);
     place-items: center;
     gap: 15px;
+    margin-top: 1.5em;
 }
 
 .container button {
@@ -47,7 +60,7 @@ main {
 }
 
 .roll {
-    width: 92px;
+    width: 100px;
     height: 35px;
     background-color: #5035FF;
     color:white;
